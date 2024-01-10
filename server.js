@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'dist')))
 app.use(express.static(path.join(__dirname, 'node_modules')))
 
 const mongoose = require('mongoose');
-mongoose.connect("mongodb+srv://emranqedan11:E5b8037ec1@emranscluster0.p4bywbz.mongodb.net/WeatherApp?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://emranqedan11:E5b8037ec1@emranscluster0.p4bywbz.mongodb.net/WeatherApp?retryWrites=true&w=majority", { useNewUrlParser: true })
 
 app.use('/', api)
 
