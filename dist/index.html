@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <script id="Weather-template" type="text/x-handlebars-template">
+        <input type="text" placeholder=" Address ,City or Zip Code " id="cityInput">
+        <button class="searchCity" onclick="searchCityWeather()">search</button>
+
+            {{#if cityWeatherObj}}
+            <div class="searchedCity">
+                <button class="saveBtn" onclick="saveCity( `{{cityWeatherObj.name}}`)">Save</button>
+                {{cityWeatherObj.name}} 
+                {{cityWeatherObj.temperature}}
+            </div>
+        {{/if}}
+
+        </div>
+        <div class="savedCities">
+        {{#each savedCities}} 
+        <div class="savedCity">
+            <button class="deleteBtn" onclick="deleteCity(`{{this.name}}`)">delete</button>
+            {{this.name}}
+            {{this.temperature}}
+        </div>
+        {{/each}}
+        </div>
+    </script>
+    <div id="container"></div> 
+
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="/handlebars/dist/handlebars.js"></script>
+    <script src="APIManager.js"></script>
+    <script src="render.js"></script>
+    <script src="weather.js"></script>
+</body>
+</html>
